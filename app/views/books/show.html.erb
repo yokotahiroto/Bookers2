@@ -35,13 +35,17 @@
         <h2>Books detail</h2>
         <table class="table">
           <tbody>
-            <% @books.each do |book| %>
+            
             <tr>
-              <td><%= attachment_image_tag @user, :profile_image, size:'40x40', fallback: "no_image.jpg", size:'40x40' %></td>
-              <td><%= book.title %></td>
-              <td><%= book.body %></td>
-            </tr>
-            <% end %>
+              <td>
+                <%= attachment_image_tag @user, :profile_image, size:'40x40', fallback: "no_image.jpg", size:'40x40' %><br>
+                <%= link_to @user.name, user_path(@user) %>
+              </td>
+              <td><%= @book_show.title %></td>
+              <td><%= @book_show.body %></td>
+             <td><%= link_to "edit", edit_book_path(@book_edit), class: 'btn btn-success btn-sm btn-block' %></td
+            </tr> 
+            
           </tbody>
         </table>
       </div>
