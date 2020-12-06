@@ -10,10 +10,15 @@ class UsersController < ApplicationController
     @users = User.all
     @book = Book.new
   end
-  
+   
   def edit
     @user = User.find(params[:id])
     @user_new = User.new
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to user_path(current_user)  
+    end
   end
   
   def new
