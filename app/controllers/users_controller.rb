@@ -44,6 +44,17 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+   
+  def following
+    @user  = User.find(params[:id])
+    render 'show_follow'
+  end
+
+  def follower
+    @user  = User.find(params[:id])
+    render 'show_follower'
+  end
+
  
   private
 
