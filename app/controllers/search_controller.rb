@@ -11,7 +11,7 @@ class SearchController < ApplicationController
       elsif search == "backward_match" 
          @users = User.where("name LIKE ?", "%#{word}")
       elsif search == "perfect_match"
-         @users = User.where("name LIKE ?", "#{word}")
+         @users = User.where("name LIKE ?", "#{word}") 
       elsif search == "partial_match"
          @users = User.where("name LIKE ?", "%#{word}%")
       else
